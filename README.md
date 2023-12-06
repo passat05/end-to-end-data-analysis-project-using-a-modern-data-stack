@@ -1,5 +1,5 @@
 # Introduction
-The project aimed to create a robust yet simple data analytics platform with airflow for orchestration, dbt for modelling and transformation, Gitlab for continuous integration and development and Power BI for visualization backed by development pipelines in Power BI service.  
+The project aimed to create a robust yet simple data analytics platform utilizing Airflow for orchestration, dbt for modeling and transformation, GitLab for continuous integration and development, and Power BI for visualization.  
 ![data_pipeline.png](images%2Fdata_pipeline.png)
 # Understanding the components
 ## Check quality
