@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: fact_actual
+    columns:
+      - name: organisation_id 
+        description: The surrogate key of the organization area
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_org')
+              field: organisation_id
+
+  - name: fact_bugdet
+    columns:
+      - name: organisation_id 
+        description: The surrogate key of the organization area
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_org')
+              field: organisation_id
+
+  - name: fact_forecast
+    columns:
+      - name: organisation_id 
+        description: The surrogate key of the organization area
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_org')
+              field: organisation_id

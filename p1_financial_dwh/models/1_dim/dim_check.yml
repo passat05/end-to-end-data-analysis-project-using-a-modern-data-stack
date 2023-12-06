@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: dim_org
+    columns:
+      - name: organisation_key 
+        description: The surrogate key of the organization area
+        tests:
+          - not_null
+          - unique
+      - name: organisation_id 
+        description: The natural key of the organization area
+        tests:
+          - not_null
+          - unique
+      - name: organisation_area 
+        description: The area name
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['UK', 'France', 'Germany', 'Spain', 'Italy', 'Portugal', 'Switzerland', 'Norway', 'Sweden']
+
+  - name: dim_sub_ledger
+    columns:
+      - name: sub_ledger_key 
+        description: The surrogate key of the sub ledger
+        tests:
+          - not_null
+          - unique
+      - name: sub_ledger_id 
+        description: The natural key of the sub ledger
+        tests:
+          - not_null
+          - unique
+      - name: level3_detail 
+        description: The ledger name
+        tests:
+          - not_null
