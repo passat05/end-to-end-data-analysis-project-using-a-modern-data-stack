@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: dtm_pnl_statement
+    columns:
+      - name: actual 
+        tests:
+          - not_null
+    columns:
+      - name: reported_month 
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between: 
+              min_value: DATE '2019-01-01'

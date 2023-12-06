@@ -1,0 +1,17 @@
+finance_dwh:
+  target: dev
+  outputs: 
+    dev:
+      type: postgres
+      threads: 1
+      host: 127.0.0.1
+      # 127.0.0.1
+      port: 5433
+      user: username
+      # '{{ var("DBT_USER") }}'
+      # "${DBT_DB_USER}"
+      pass: secretpassword
+      # '{{ var("DBT_PASS") }}'
+      # "${DBT_DB_PASS}"
+      dbname: postgres
+      schema: accounting
