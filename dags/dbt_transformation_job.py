@@ -4,16 +4,16 @@ from pendulum import today
 import json
 import os
 
-dbt_path = "/root/dbt-env/bin/activate" # path to your dbt project
-manifest_path = "/root/demo/target/manifest.json" # path to manifest.json
+dbt_path = "/root/postgres_dbt_env/bin/activate" # path to your dbt project
+manifest_path = "/root/project/p1_financial_dwh/target/manifest.json" # path to manifest.json
 
 with open(manifest_path) as f: # Open manifest.json
     manifest = json.load(f) # Load its contents into a Python Dictionary
     nodes = manifest["nodes"] # Extract just the nodes
 
-with DAG(dag_id='dbt_job',
+with DAG(dag_id='p1_financial_dwh_transformation',
          default_args={'owner': 'airflow'},
-         schedule='30 3 * * *',
+         schedule='0 7 * * *',
          start_date=today('UTC').add(days=-1)
     ) as dag:
 
@@ -24,7 +24,7 @@ with DAG(dag_id='dbt_job',
         dbt_tasks[node_id] = BashOperator(
             task_id=node_id,
             bash_command=f"source {dbt_path}" # Go to the path containing your dbt project
-                         + f" && dbt {dbt_cmd} --project-dir ~/demo --models {node_info['name']}" # run the model!
+                         + f" && dbt {dbt_cmd} --project-dir ~/project/p1_financial_dwh --profiles-dir ~/project/p1_financial_dwh --models {node_info['name']}" # run the model!
         )
 
     # Define relationships between Operators
