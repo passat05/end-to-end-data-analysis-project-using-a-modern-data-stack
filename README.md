@@ -2,7 +2,7 @@
 The project aimed to create a robust yet simple data analytics platform utilizing Airflow for orchestration, dbt for modeling and transformation, GitLab for continuous integration and development, and Power BI for visualization.
 
 
-![data_pipeline.png](images%2Fdata_pipeline.png)
+![01_data_pipeline.png](images%2F01_data_pipeline.png)
 # Understanding the components
 ## Check quality
 ### Scope
@@ -48,6 +48,7 @@ The transformed data would then be used to generate visualizations which transfo
 Power BI is a business intelligence tool developed by Microsoft that empowers users to visualize and share insights from data. It offers a wide range of capabilities for data preparation, analysis, and visualization. Notably, it integrates development pipelines in the Power BI service and seamlessly connects with Azure DevOps and Git Ops for efficient version control and collaborative workflows.
 
 
+![07_pbi_dashboard.PNG](images%2F07_pbi_dashboard.PNG)
 RLS Row Level Security is also a valuable and practical feature that ensures data security by restricting access to specific rows of data based on user roles, enabling precise control over information visibility.
 ## Orchestration and CI/CD
 ### Scope
