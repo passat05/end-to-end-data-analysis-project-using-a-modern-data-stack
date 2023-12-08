@@ -1,0 +1,20 @@
+stages:
+  - test
+  # - debug
+
+image: python:3.11
+
+before_script:
+  - apt-get update
+  - apt-get dist-upgrade -y
+  - apt-get install -y --no-install-recommends git make ca-certificates libpq-dev libicu-dev pkg-config gcc build-essential
+  # - python -m venv dbt-env
+  # - source dbt-env/bin/activate
+  - pip install dbt-postgres
+  
+test:
+  stage: test
+  script:
+    - dbt deps
+    - dbt build
+   
